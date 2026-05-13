@@ -32,3 +32,12 @@
   font-family: "Gaoel", "Syncopate", sans-serif;
   letter-spacing: 0.04em;
 }
+
+/* ---- Headings: full DS spec ---- */
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Syncopate", "Inter", sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+  font-weight: 700;
+}
+h1 { letter-spacing: -0.005em; }

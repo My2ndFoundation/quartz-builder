@@ -41,3 +41,24 @@ h1, h2, h3, h4, h5, h6 {
   font-weight: 700;
 }
 h1 { letter-spacing: -0.005em; }
+
+/* ---- Eyebrow utility (DS metadata label) ---- */
+.eyebrow {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--secondary);
+  font-weight: 500;
+}
+
+/* ---- Brand-tinted blockquote ---- */
+blockquote { border-left-color: var(--secondary); }
+
+/* ---- Footer ---- */
+footer { font-family: "Inter", sans-serif; }
+footer .brand {
+  font-family: "Syncopate", sans-serif;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}

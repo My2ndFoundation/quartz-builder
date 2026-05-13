@@ -1,3 +1,34 @@
 @use "./base.scss";
 
-// put your custom CSS here!
+/* ---- DS bridge tokens (light) ---- */
+:root {
+  --bg-3:           #e0d8c0;
+  --bg-inset:       #072a20;
+  --rule-strong:    #b8aa86;
+  --accent-deep:    #a87a22;
+  --danger:         #8a2e1b;
+  --edge-highlight: inset 0 1px 0 0 rgba(255, 255, 255, 0.6);
+}
+
+/* ---- DS bridge tokens (dark) ---- */
+:root[saved-theme="dark"] {
+  --bg-3:           #11382c;
+  --bg-inset:       #04150f;
+  --rule-strong:    #2e5345;
+  --accent-deep:    #c89236;
+  --danger:         #d96a52;
+  --edge-highlight: inset 0 1px 0 0 rgba(255, 255, 255, 0.04);
+}
+
+/* ---- Brand wordmark font ---- */
+@font-face {
+  font-family: "Gaoel";
+  src: url("static/fonts/gaoel.ttf") format("truetype");
+  font-display: swap;
+}
+
+/* ---- Brand wordmark (PageTitle / Footer) ---- */
+.brand-wordmark {
+  font-family: "Gaoel", "Syncopate", sans-serif;
+  letter-spacing: 0.04em;
+}

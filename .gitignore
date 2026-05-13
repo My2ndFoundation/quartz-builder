@@ -9,3 +9,10 @@ tsconfig.tsbuildinfo
 private/
 .replit
 replit.nix
+
+# User content — this repo is a generic builder
+content/*
+!content/.gitkeep
+
+# Local-only deploy script
+deploy.sh

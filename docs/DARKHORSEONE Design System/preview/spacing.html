@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Spacing Scale</title>
+  <link rel="stylesheet" href="../colors_and_type.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: var(--font-body);
+      padding: 24px;
+      background: white;
+    }
+    
+    .spacing-item {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 12px;
+    }
+    
+    .spacing-label {
+      font-size: 12px;
+      font-weight: 600;
+      min-width: 80px;
+      color: var(--color-text-primary);
+    }
+    
+    .spacing-bar {
+      height: 24px;
+      background-color: #094832;
+      border-radius: 2px;
+    }
+    
+    .spacing-value {
+      font-size: 11px;
+      color: var(--color-text-secondary);
+      font-family: var(--font-mono);
+    }
+  </style>
+</head>
+<body>
+  <div class="spacing-item">
+    <div class="spacing-label">Space 2</div>
+    <div class="spacing-bar" style="width: 8px;"></div>
+    <div class="spacing-value">8px</div>
+  </div>
+  <div class="spacing-item">
+    <div class="spacing-label">Space 4</div>
+    <div class="spacing-bar" style="width: 16px;"></div>
+    <div class="spacing-value">16px</div>
+  </div>
+  <div class="spacing-item">
+    <div class="spacing-label">Space 6</div>
+    <div class="spacing-bar" style="width: 24px;"></div>
+    <div class="spacing-value">24px</div>
+  </div>
+  <div class="spacing-item">
+    <div class="spacing-label">Space 8</div>
+    <div class="spacing-bar" style="width: 32px;"></div>
+    <div class="spacing-value">32px</div>
+  </div>
+  <div class="spacing-item">
+    <div class="spacing-label">Space 12</div>
+    <div class="spacing-bar" style="width: 48px;"></div>
+    <div class="spacing-value">48px</div>
+  </div>
+  <div class="spacing-item">
+    <div class="spacing-label">Space 16</div>
+    <div class="spacing-bar" style="width: 64px;"></div>
+    <div class="spacing-value">64px</div>
+  </div>
+  <div class="spacing-item">
+    <div class="spacing-label">Space 24</div>
+    <div class="spacing-bar" style="width: 96px;"></div>
+    <div class="spacing-value">96px</div>
+  </div>
+</body>
+</html>

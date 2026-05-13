@@ -1,0 +1,138 @@
+/**
+ * DARKHORSEONE Design System — Light Theme
+ *
+ * The brand's default state: warm cream surfaces, deep brand green for
+ * hierarchy and CTAs, and a confident gold accent. These tokens already
+ * live in colors_and_type.css as the unscoped defaults — this file
+ * re-asserts them under [data-theme="light"] so the light theme can be
+ * opted into explicitly, paired symmetrically with dark-theme.css.
+ *
+ * It also adds the bridge tokens (--bg, --bg-2, --bg-3, --bg-inset,
+ * --rule-strong, --edge-highlight) that dark-theme.css introduces, so
+ * components written against the bridge vocabulary work in either theme.
+ *
+ * Usage:
+ *   1) Link AFTER colors_and_type.css. With no data-theme attribute the
+ *      light defaults already apply; this file is only needed when you
+ *      want to force light against a darker ancestor or use the bridge
+ *      tokens (--bg, --bg-2, etc.) without duplicating them in components.
+ *   2) Add data-theme="light" to <html> to opt-in per page / scope.
+ */
+
+[data-theme="light"],
+.theme-light,
+:root {
+  /* ============================================
+     SURFACES (Light)
+     ============================================
+     Cream is canvas; cream-2 is cards; a deeper cream gives an
+     elevated/hover state; the deep brand green serves as the
+     inverted "deep panel" surface for CTAs and emphasis bands. */
+  --bg:           #f4efe3;    /* Page background — cream */
+  --bg-2:         #ebe4d2;    /* Card / panel surface — cream-2 */
+  --bg-3:         #e0d8c0;    /* Elevated / hover surface */
+  --bg-inset:     #072a20;    /* Deep CTA panel — green-ink */
+
+  /* Original brand greens (assert here so the file is self-sufficient
+     when used standalone). */
+  --green:        #0e4a3a;    /* Main brand color */
+  --green-deep:   #0a3a2d;    /* Deep green — emphasis */
+  --green-ink:    #072a20;    /* Ink green — deepest panels */
+
+  /* Cream aliases — kept so existing components that reference --cream
+     directly continue to work. */
+  --cream:        var(--bg);
+  --cream-2:      var(--bg-2);
+
+  /* ============================================
+     TEXT (Dark ink on cream)
+     ============================================ */
+  --ink:          #102018;    /* Primary text */
+  --ink-soft:     #3d4d44;    /* Secondary text */
+  --muted:        #6f7b73;    /* Muted / metadata */
+
+  /* ============================================
+     DECORATIVE
+     ============================================ */
+  --rule:         #cbc3ae;    /* Dividers — subtle on cream */
+  --rule-strong:  #b8aa86;    /* Stronger dividers / borders */
+
+  --accent:       #d9a441;    /* Gold accent */
+  --accent-deep:  #a87a22;    /* Hover / pressed gold */
+  --danger:       #8a2e1b;    /* Warning red */
+
+  /* ============================================
+     LEGACY / COMPATIBILITY
+     ============================================ */
+  --color-brand-green:     var(--green);
+  --color-white:           #ffffff;
+  --color-black:           #000000;
+  --color-primary:         var(--green);
+  --color-text-primary:    var(--ink);
+  --color-text-secondary:  var(--ink-soft);
+  --color-text-tertiary:   var(--muted);
+  --color-bg-primary:      var(--bg);
+  --color-bg-secondary:    var(--bg-2);
+  --color-border-light:    var(--rule);
+
+  /* ============================================
+     SHADOWS (Light mode)
+     ============================================
+     Soft black drop-shadows read well on cream. A near-white inner
+     top-edge gives cards a paper-stacked feel — paired symmetrically
+     with the dark theme's translucent-white edge highlight. */
+  --shadow-sm:    0 1px 2px 0 rgba(16, 32, 24, 0.06);
+  --shadow-base:  0 1px 3px 0 rgba(16, 32, 24, 0.08), 0 1px 2px 0 rgba(16, 32, 24, 0.05);
+  --shadow-md:    0 4px 6px -1px rgba(16, 32, 24, 0.08), 0 2px 4px -1px rgba(16, 32, 24, 0.05);
+  --shadow-lg:    0 10px 15px -3px rgba(16, 32, 24, 0.1), 0 4px 6px -2px rgba(16, 32, 24, 0.05);
+  --shadow-xl:    0 20px 25px -5px rgba(16, 32, 24, 0.1), 0 10px 10px -5px rgba(16, 32, 24, 0.04);
+  --shadow-2xl:   0 25px 50px -12px rgba(16, 32, 24, 0.18);
+
+  /* Apply as: box-shadow: var(--edge-highlight), var(--shadow-md); */
+  --edge-highlight: inset 0 1px 0 0 rgba(255, 255, 255, 0.6);
+
+  color-scheme: light;
+}
+
+/* ============================================
+   COMPONENT OVERRIDES
+   ============================================
+   Most light-theme components Just Work against colors_and_type.css.
+   These overrides handle the few cases where the bridge tokens or
+   theme-aware patterns need explicit values. */
+
+[data-theme="light"] body,
+.theme-light body {
+  background: var(--bg);
+  color: var(--ink);
+}
+
+/* Checker pattern: green tiles on cream — the brand's default. */
+[data-theme="light"] .checker,
+.theme-light .checker {
+  background-image:
+    linear-gradient(45deg, var(--green) 25%, transparent 25%, transparent 75%, var(--green) 75%),
+    linear-gradient(45deg, var(--green) 25%, var(--bg-2) 25%, var(--bg-2) 75%, var(--green) 75%);
+}
+
+/* Paper texture: multiply blend on cream adds warmth without darkening. */
+[data-theme="light"] .flyer::before,
+.theme-light .flyer::before {
+  background-image:
+    radial-gradient(rgba(0, 0, 0, 0.04) 1px, transparent 1px),
+    radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+  mix-blend-mode: multiply;
+  opacity: 0.55;
+}
+
+/* Form elements — clean cream-2 inputs with a brand-green focus ring. */
+[data-theme="light"] input,
+[data-theme="light"] textarea,
+[data-theme="light"] select,
+.theme-light input,
+.theme-light textarea,
+.theme-light select {
+  background: var(--bg-2);
+  color: var(--ink);
+  border: 1px solid var(--rule-strong);
+}

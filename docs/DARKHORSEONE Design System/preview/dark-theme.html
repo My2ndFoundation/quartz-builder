@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dark Theme — DARKHORSEONE</title>
+  <link rel="stylesheet" href="../colors_and_type.css">
+  <link rel="stylesheet" href="../dark-theme.css">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--bg);
+      color: var(--ink);
+      padding: 40px 32px 56px;
+      min-height: 100vh;
+    }
+
+    .wrap { max-width: 920px; margin: 0 auto; display: flex; flex-direction: column; gap: 40px; }
+
+    /* ---- Header ---- */
+    .header { display: flex; flex-direction: column; gap: 14px; }
+    .eyebrow {
+      font-family: var(--font-mono);
+      font-size: 11.5px;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      color: var(--accent);
+      font-weight: 500;
+    }
+    .title {
+      font-family: var(--font-headings);
+      font-size: 36px;
+      font-weight: 700;
+      line-height: 1.08;
+      letter-spacing: -.005em;
+      text-transform: uppercase;
+      color: var(--ink);
+    }
+    .lede {
+      font-size: 16px;
+      line-height: 1.55;
+      color: var(--ink-soft);
+      max-width: 64ch;
+    }
+
+    /* ---- Section heading ---- */
+    .section { display: flex; flex-direction: column; gap: 16px; }
+    .section-head {
+      display: flex; align-items: center; gap: 14px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--rule);
+    }
+    .section-head h2 {
+      font-family: var(--font-headings);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--ink);
+    }
+    .section-head .marker {
+      width: 22px; height: 1px; background: var(--accent);
+    }
+    .section-head .num {
+      margin-left: auto;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: .18em;
+      color: var(--muted);
+    }
+
+    /* ---- Checker band (rhythm) ---- */
+    .checker {
+      height: 12px;
+      background-image:
+        linear-gradient(45deg, var(--green) 25%, transparent 25%, transparent 75%, var(--green) 75%),
+        linear-gradient(45deg, var(--green) 25%, var(--bg-2) 25%, var(--bg-2) 75%, var(--green) 75%);
+      background-size: 18px 18px;
+      background-position: 0 0, 9px 9px;
+    }
+
+    /* ---- Color swatches ---- */
+    .color-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+    }
+    .color-card { display: flex; flex-direction: column; }
+    .color-swatch {
+      height: 64px;
+      margin-bottom: 8px;
+      border: 1px solid var(--rule);
+      position: relative;
+    }
+    .color-swatch.is-text::after {
+      content: "Aa";
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-headings);
+      font-weight: 700;
+      font-size: 22px;
+    }
+    .color-name {
+      font-family: var(--font-mono);
+      font-size: 10.5px;
+      font-weight: 500;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--ink);
+      margin-bottom: 2px;
+    }
+    .color-hex {
+      font-family: var(--font-mono);
+      font-size: 10.5px;
+      color: var(--muted);
+    }
+
+    /* ---- Cards row ---- */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+    .card {
+      background: var(--bg-2);
+      border-top: 3px solid var(--green);
+      padding: 18px;
+      box-shadow: var(--edge-highlight), var(--shadow-md);
+      display: flex; flex-direction: column; gap: 10px;
+    }
+    .card.is-gold   { border-top-color: var(--accent); }
+    .card.is-danger { border-top-color: var(--danger); }
+    .card-eyebrow {
+      font-family: var(--font-mono);
+      font-size: 10.5px;
+      font-weight: 500;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+    .card-title {
+      font-family: var(--font-headings);
+      font-size: 14px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .01em;
+      color: var(--ink);
+    }
+    .card-text {
+      font-size: 13px;
+      line-height: 1.55;
+      color: var(--ink-soft);
+    }
+    .card .meta {
+      margin-top: 4px;
+      padding-top: 10px;
+      border-top: 1px dashed var(--rule);
+      font-family: var(--font-mono);
+      font-size: 10.5px;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      display: flex; justify-content: space-between;
+    }
+
+    /* ---- Type spec ---- */
+    .type-spec {
+      background: var(--bg-2);
+      padding: 22px;
+      box-shadow: var(--edge-highlight), var(--shadow-md);
+      display: flex; flex-direction: column; gap: 18px;
+    }
+    .type-row {
+      display: grid;
+      grid-template-columns: 130px 1fr;
+      gap: 22px;
+      align-items: baseline;
+      padding-bottom: 16px;
+      border-bottom: 1px solid var(--rule);
+    }
+    .type-row:last-child { border-bottom: 0; padding-bottom: 0; }
+    .type-row .label {
+      font-family: var(--font-mono);
+      font-size: 10.5px;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--muted);
+      padding-top: 6px;
+    }
+    .display {
+      font-family: var(--font-headings);
+      font-size: 42px;
+      font-weight: 700;
+      line-height: 1.05;
+      letter-spacing: -.005em;
+      text-transform: uppercase;
+      color: var(--ink);
+    }
+    .heading {
+      font-family: var(--font-headings);
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: .01em;
+      text-transform: uppercase;
+      color: var(--ink);
+    }
+    .body-sample {
+      font-size: 16px;
+      line-height: 1.6;
+      color: var(--ink-soft);
+      max-width: 56ch;
+    }
+    .mono-sample {
+      font-family: var(--font-mono);
+      font-size: 12px;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+
+    /* ---- Buttons ---- */
+    .btn-row { display: flex; gap: 12px; flex-wrap: wrap; }
+    .btn {
+      font-family: var(--font-headings);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      padding: 14px 22px;
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: 150ms ease;
+    }
+    .btn-primary { background: var(--accent); color: var(--bg); }
+    .btn-primary:hover { background: var(--accent-deep); }
+    .btn-secondary { background: var(--green); color: var(--ink); }
+    .btn-secondary:hover { background: var(--green-deep); }
+    .btn-ghost { background: transparent; color: var(--ink); border-color: var(--rule-strong); }
+    .btn-ghost:hover { border-color: var(--accent); color: var(--accent); }
+
+    /* ---- Hero / CTA strip ---- */
+    .cta {
+      background: var(--bg-inset);
+      padding: 32px;
+      box-shadow: var(--edge-highlight);
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 24px;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .cta::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 12px;
+      background-image:
+        linear-gradient(45deg, var(--accent) 25%, transparent 25%, transparent 75%, var(--accent) 75%),
+        linear-gradient(45deg, var(--accent) 25%, var(--bg-inset) 25%, var(--bg-inset) 75%, var(--accent) 75%);
+      background-size: 18px 18px;
+      background-position: 0 0, 9px 9px;
+    }
+    .cta-inner { padding-top: 14px; display: flex; flex-direction: column; gap: 8px; }
+    .cta-eyebrow {
+      font-family: var(--font-mono);
+      font-size: 10.5px;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      color: var(--accent);
+      font-weight: 500;
+    }
+    .cta-title {
+      font-family: var(--font-headings);
+      font-size: 24px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .01em;
+      color: var(--ink);
+      max-width: 28ch;
+    }
+    .cta-sub {
+      font-size: 13.5px;
+      line-height: 1.55;
+      color: var(--ink-soft);
+      max-width: 50ch;
+    }
+    .cta-right { padding-top: 14px; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+
+    <!-- HEADER -->
+    <header class="header">
+      <div class="eyebrow">DARK&nbsp;THEME&nbsp;·&nbsp;V1</div>
+      <h1 class="title">An unexpected<br>winner — after dark.</h1>
+      <p class="lede">
+        The dark theme isn't an inversion of the light theme — it's the brand's existing
+        "deep panel" green, promoted to canvas. Cream tones flip from background to text,
+        gold brightens slightly, and the warmth carries over.
+      </p>
+    </header>
+
+    <div class="checker"></div>
+
+    <!-- SURFACES -->
+    <section class="section">
+      <div class="section-head">
+        <span class="marker"></span>
+        <h2>Surfaces</h2>
+        <span class="num">01 / 05</span>
+      </div>
+      <div class="color-grid">
+        <div class="color-card">
+          <div class="color-swatch" style="background: var(--bg);"></div>
+          <div class="color-name">bg</div>
+          <div class="color-hex">#061f17</div>
+        </div>
+        <div class="color-card">
+          <div class="color-swatch" style="background: var(--bg-2);"></div>
+          <div class="color-name">bg-2</div>
+          <div class="color-hex">#0a2a20</div>
+        </div>
+        <div class="color-card">
+          <div class="color-swatch" style="background: var(--bg-3);"></div>
+          <div class="color-name">bg-3</div>
+          <div class="color-hex">#11382c</div>
+        </div>
+        <div class="color-card">
+          <div class="color-swatch" style="background: var(--bg-inset);"></div>
+          <div class="color-name">bg-inset</div>
+          <div class="color-hex">#04150f</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BRAND / ACCENT -->
+    <section class="section">
+      <div class="section-head">
+        <span class="marker"></span>
+        <h2>Brand &amp; Accent</h2>
+        <span class="num">02 / 05</span>
+      </div>
+      <div class="color-grid">
+        <div class="color-card">
+          <div class="color-swatch" style="background: var(--green);"></div>
+          <div class="color-name">green</div>
+          <div class="color-hex">#2e8c6e</div>
+        </div>
+        <div class="color-card">
+          <div class="color-swatch" style="background: var(--green-deep);"></div>
+          <div class="color-name">green-deep</div>
+          <div class="color-hex">#1f6b53</div>
+        </div>
+        <div class="color-card">
+          <div class="color-swatch" style="background: var(--accent);"></div>
+          <div class="color-name">accent</div>
+          <div class="color-hex">#e6b558</div>
+        </div>
+        <div class="color-card">
+          <div class="color-swatch" style="background: var(--danger);"></div>
+          <div class="color-name">danger</div>
+          <div class="color-hex">#d96a52</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TEXT -->
+    <section class="section">
+      <div class="section-head">
+        <span class="marker"></span>
+        <h2>Text on Dark</h2>
+        <span class="num">03 / 05</span>
+      </div>
+      <div class="color-grid">
+        <div class="color-card">
+          <div class="color-swatch is-text" style="background: var(--bg-2); color: var(--ink);"></div>
+          <div class="color-name">ink</div>
+          <div class="color-hex">#f4efe3</div>
+        </div>
+        <div class="color-card">
+          <div class="color-swatch is-text" style="background: var(--bg-2); color: var(--ink-soft);"></div>
+          <div class="color-name">ink-soft</div>
+          <div class="color-hex">#c9c1a8</div>
+        </div>
+        <div class="color-card">
+          <div class="color-swatch is-text" style="background: var(--bg-2); color: var(--muted);"></div>
+          <div class="color-name">muted</div>
+          <div class="color-hex">#8a8470</div>
+        </div>
+        <div class="color-card">
+          <div class="color-swatch is-text" style="background: var(--bg-2); color: var(--accent);"></div>
+          <div class="color-name">accent</div>
+          <div class="color-hex">#e6b558</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TYPOGRAPHY APPLIED -->
+    <section class="section">
+      <div class="section-head">
+        <span class="marker"></span>
+        <h2>Typography</h2>
+        <span class="num">04 / 05</span>
+      </div>
+      <div class="type-spec">
+        <div class="type-row">
+          <div class="label">Display</div>
+          <div class="display">Unexpected<br>winners</div>
+        </div>
+        <div class="type-row">
+          <div class="label">Heading</div>
+          <div class="heading">Strategic Services</div>
+        </div>
+        <div class="type-row">
+          <div class="label">Body</div>
+          <div class="body-sample">
+            We partner with founders and operators to turn unremarkable
+            companies into dark horses — the ones the market doesn't see
+            coming until they've already won.
+          </div>
+        </div>
+        <div class="type-row">
+          <div class="label">Mono / Label</div>
+          <div class="mono-sample">Section · 04 · Typography</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- COMPONENTS -->
+    <section class="section">
+      <div class="section-head">
+        <span class="marker"></span>
+        <h2>Components</h2>
+        <span class="num">05 / 05</span>
+      </div>
+
+      <div class="card-grid">
+        <div class="card">
+          <div class="card-eyebrow">01 · Strategy</div>
+          <div class="card-title">Business Strategy</div>
+          <div class="card-text">
+            Transform challenges into competitive advantages through
+            data-driven planning and decisive execution.
+          </div>
+          <div class="meta"><span>12-week sprint</span><span>→</span></div>
+        </div>
+        <div class="card is-gold">
+          <div class="card-eyebrow">02 · Growth</div>
+          <div class="card-title">Market Entry</div>
+          <div class="card-text">
+            Find the underserved corner, build the wedge, and move
+            before incumbents notice you're there.
+          </div>
+          <div class="meta"><span>Quarter retainer</span><span>→</span></div>
+        </div>
+        <div class="card is-danger">
+          <div class="card-eyebrow">03 · Risk</div>
+          <div class="card-title">Crisis Response</div>
+          <div class="card-text">
+            When the plan stops working, we move fast — diagnose,
+            contain, and re-route within the same week.
+          </div>
+          <div class="meta"><span>Same-day start</span><span>→</span></div>
+        </div>
+      </div>
+
+      <div class="btn-row" style="margin-top: 8px;">
+        <button class="btn btn-primary">Get Started</button>
+        <button class="btn btn-secondary">Learn More</button>
+        <button class="btn btn-ghost">Read the brief</button>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <div class="cta">
+      <div class="cta-inner">
+        <div class="cta-eyebrow">Ready when you are</div>
+        <div class="cta-title">Make your business an unexpected winner.</div>
+        <div class="cta-sub">
+          Book an introductory call. Thirty minutes, no pitch deck —
+          just a conversation about what you're actually trying to move.
+        </div>
+      </div>
+      <div class="cta-right">
+        <button class="btn btn-primary">Book a Call</button>
+      </div>
+    </div>
+
+  </div>
+</body>
+</html>

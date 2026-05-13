@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Background Colors</title>
+  <link rel="stylesheet" href="../colors_and_type.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: var(--font-body);
+      padding: 24px;
+      background: white;
+    }
+    
+    .color-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+    
+    .color-card {
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .color-swatch {
+      height: 70px;
+      border-radius: 4px;
+      margin-bottom: 6px;
+      border: 1px solid var(--rule);
+    }
+    
+    .color-name {
+      font-size: 12px;
+      font-weight: 600;
+      margin-bottom: 2px;
+      color: var(--ink);
+      font-family: var(--font-mono);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    
+    .color-hex {
+      font-size: 11px;
+      color: var(--muted);
+      font-family: var(--font-mono);
+    }
+  </style>
+</head>
+<body>
+  <div class="color-grid">
+    <div class="color-card">
+      <div class="color-swatch" style="background-color: var(--cream);"></div>
+      <div class="color-name">cream</div>
+      <div class="color-hex">#f4efe3</div>
+    </div>
+    
+    <div class="color-card">
+      <div class="color-swatch" style="background-color: var(--cream-2);"></div>
+      <div class="color-name">cream-2</div>
+      <div class="color-hex">#ebe4d2</div>
+    </div>
+    
+    <div class="color-card">
+      <div class="color-swatch" style="background-color: var(--ink);"></div>
+      <div class="color-name">ink</div>
+      <div class="color-hex">#102018</div>
+    </div>
+    
+    <div class="color-card">
+      <div class="color-swatch" style="background-color: var(--ink-soft);"></div>
+      <div class="color-name">ink-soft</div>
+      <div class="color-hex">#3d4d44</div>
+    </div>
+    
+    <div class="color-card">
+      <div class="color-swatch" style="background-color: var(--muted);"></div>
+      <div class="color-name">muted</div>
+      <div class="color-hex">#6f7b73</div>
+    </div>
+    
+    <div class="color-card">
+      <div class="color-swatch" style="background-color: var(--rule);"></div>
+      <div class="color-name">rule</div>
+      <div class="color-hex">#cbc3ae</div>
+    </div>
+  </div>
+</body>
+</html>

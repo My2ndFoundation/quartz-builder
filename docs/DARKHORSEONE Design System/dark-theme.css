@@ -1,0 +1,137 @@
+/**
+ * DARKHORSEONE Design System — Dark Theme
+ *
+ * Built on the brand's existing "deep panel" green tones. The dark theme is
+ * effectively the same palette the brand already uses for its CTA bars and
+ * deep sections, promoted to the canvas. Cream tones flip from background
+ * to text — preserving the brand warmth instead of going neutral grey.
+ *
+ * Usage:
+ *   1) Link this file AFTER colors_and_type.css to enable globally, OR
+ *   2) Add data-theme="dark" to <html> to opt-in per page.
+ */
+
+[data-theme="dark"],
+.theme-dark {
+  /* ============================================
+     SURFACES (Dark)
+     ============================================
+     The brand's deep greens become the canvas. We add one slightly
+     lighter surface for elevated cards so depth still reads. */
+  --bg:           #061f17;    /* Page background — deeper than green-ink */
+  --bg-2:         #0a2a20;    /* Card / panel surface */
+  --bg-3:         #11382c;    /* Elevated / hover surface */
+  --bg-inset:     #04150f;    /* Inset wells, code blocks */
+
+  /* Re-map brand greens so existing components keep working.
+     Cards that used cream-2 now sit on bg-2. */
+  --cream:        var(--bg);
+  --cream-2:      var(--bg-2);
+
+  /* Brand green becomes a HIGHLIGHT color on dark, not a surface.
+     We lift it ~25% lightness so it reads against the dark canvas. */
+  --green:        #2e8c6e;    /* Brand green, dark-mode tuned */
+  --green-deep:   #1f6b53;    /* Mid-emphasis */
+  --green-ink:    #0a2a20;    /* Same as bg-2 — preserves "deepest" semantics */
+
+  /* ============================================
+     TEXT (Warm cream, not pure white)
+     ============================================
+     Keeps the brand warmth. Pure #fff would feel sterile against
+     these warm greens. */
+  --ink:          #f4efe3;    /* Primary text — original cream */
+  --ink-soft:     #c9c1a8;    /* Secondary text */
+  --muted:        #8a8470;    /* Muted / metadata */
+
+  /* ============================================
+     DECORATIVE
+     ============================================ */
+  --rule:         #1f3a30;    /* Dividers — subtle on dark */
+  --rule-strong:  #2e5345;    /* Stronger dividers / borders */
+
+  --accent:       #e6b558;    /* Gold — brightened for dark bg */
+  --accent-deep:  #c89236;    /* Hover / pressed gold */
+  --danger:       #d96a52;    /* Warning red — brightened */
+
+  /* ============================================
+     LEGACY / COMPATIBILITY
+     ============================================ */
+  --color-brand-green:     var(--green);
+  --color-white:           #ffffff;
+  --color-black:           #000000;
+  --color-primary:         var(--green);
+  --color-text-primary:    var(--ink);
+  --color-text-secondary:  var(--ink-soft);
+  --color-text-tertiary:   var(--muted);
+  --color-bg-primary:      var(--bg);
+  --color-bg-secondary:    var(--bg-2);
+  --color-border-light:    var(--rule);
+
+  /* ============================================
+     SHADOWS (Dark mode)
+     ============================================
+     Standard black-on-dark shadows are nearly invisible. We
+     use deeper, larger-spread shadows + a subtle inner highlight
+     to give cards a "lifted" feel. */
+  --shadow-sm:    0 1px 2px 0 rgba(0, 0, 0, 0.4);
+  --shadow-base:  0 1px 3px 0 rgba(0, 0, 0, 0.5), 0 1px 2px 0 rgba(0, 0, 0, 0.4);
+  --shadow-md:    0 4px 8px -1px rgba(0, 0, 0, 0.55), 0 2px 4px -1px rgba(0, 0, 0, 0.4);
+  --shadow-lg:    0 12px 20px -3px rgba(0, 0, 0, 0.6), 0 4px 8px -2px rgba(0, 0, 0, 0.45);
+  --shadow-xl:    0 24px 32px -5px rgba(0, 0, 0, 0.65), 0 10px 12px -5px rgba(0, 0, 0, 0.5);
+  --shadow-2xl:   0 30px 60px -12px rgba(0, 0, 0, 0.75);
+
+  /* Subtle top-edge highlight cards can use for "lifted from canvas" feel.
+     Apply as: box-shadow: var(--edge-highlight), var(--shadow-md); */
+  --edge-highlight: inset 0 1px 0 0 rgba(255, 255, 255, 0.04);
+
+  color-scheme: dark;
+}
+
+/* ============================================
+   COMPONENT OVERRIDES
+   ============================================
+   The light-theme component CSS uses cream/green directly. With the
+   variable re-mapping above, most components Just Work. These overrides
+   handle the few cases where the relationship inverts. */
+
+[data-theme="dark"] body,
+.theme-dark body {
+  background: var(--bg);
+  color: var(--ink);
+}
+
+/* Checker pattern: light theme draws green tiles on cream. On dark,
+   we draw green-deep tiles on bg-2 so the rhythm stays visible without
+   shouting. */
+[data-theme="dark"] .checker,
+.theme-dark .checker {
+  background-image:
+    linear-gradient(45deg, var(--green) 25%, transparent 25%, transparent 75%, var(--green) 75%),
+    linear-gradient(45deg, var(--green) 25%, var(--bg-2) 25%, var(--bg-2) 75%, var(--green) 75%);
+}
+
+/* Paper texture: invert the multiply blend on dark backgrounds so the
+   texture lifts the surface instead of muddying it. */
+[data-theme="dark"] .flyer::before,
+.theme-dark .flyer::before {
+  background-image:
+    radial-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+    radial-gradient(rgba(0, 0, 0, 0.15) 1px, transparent 1px);
+  mix-blend-mode: screen;
+  opacity: 0.6;
+}
+
+/* Card top-borders: gold and green pop nicely. Keep as-is, but the
+   default green border is now the brightened dark-mode green. */
+
+/* Form elements (if/when they exist) — give inputs a sunk-in feel. */
+[data-theme="dark"] input,
+[data-theme="dark"] textarea,
+[data-theme="dark"] select,
+.theme-dark input,
+.theme-dark textarea,
+.theme-dark select {
+  background: var(--bg-inset);
+  color: var(--ink);
+  border: 1px solid var(--rule-strong);
+}

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Card Components</title>
+  <link rel="stylesheet" href="../colors_and_type.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: var(--font-body);
+      padding: 24px;
+      background: #F8F9FA;
+    }
+    
+    .card-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    
+    .card {
+      background: white;
+      border-radius: 4px;
+      overflow: hidden;
+    }
+    
+    .card-header {
+      background-color: var(--color-primary);
+      color: white;
+      padding: 16px;
+    }
+    
+    .card-title {
+      font-size: 18px;
+      font-weight: 700;
+      font-family: var(--font-display);
+    }
+    
+    .card-body {
+      padding: 16px;
+    }
+    
+    .card-text {
+      font-size: 14px;
+      line-height: 1.5;
+      color: var(--color-text-secondary);
+    }
+    
+    .card-simple {
+      box-shadow: var(--shadow-base);
+    }
+    
+    .card-elevated {
+      box-shadow: var(--shadow-lg);
+    }
+  </style>
+</head>
+<body>
+  <div class="card-grid">
+    <div class="card card-simple">
+      <div class="card-header">
+        <div class="card-title">Strategy</div>
+      </div>
+      <div class="card-body">
+        <p class="card-text">Transform your business with data-driven strategic planning.</p>
+      </div>
+    </div>
+    
+    <div class="card card-elevated">
+      <div class="card-body">
+        <h3 style="margin-bottom: 8px; font-size: 18px;">Simple Card</h3>
+        <p class="card-text">Clean, minimal design with subtle elevation for depth.</p>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

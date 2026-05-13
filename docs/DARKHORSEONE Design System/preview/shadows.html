@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shadows & Elevation</title>
+  <link rel="stylesheet" href="../colors_and_type.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: var(--font-body);
+      padding: 24px;
+      background: #F8F9FA;
+    }
+    
+    .shadow-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+    
+    .shadow-card {
+      background: white;
+      padding: 20px;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 80px;
+    }
+    
+    .shadow-label {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--color-text-secondary);
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="shadow-grid">
+    <div class="shadow-card" style="box-shadow: var(--shadow-sm);">
+      <div class="shadow-label">Small</div>
+    </div>
+    <div class="shadow-card" style="box-shadow: var(--shadow-base);">
+      <div class="shadow-label">Base</div>
+    </div>
+    <div class="shadow-card" style="box-shadow: var(--shadow-md);">
+      <div class="shadow-label">Medium</div>
+    </div>
+    <div class="shadow-card" style="box-shadow: var(--shadow-lg);">
+      <div class="shadow-label">Large</div>
+    </div>
+    <div class="shadow-card" style="box-shadow: var(--shadow-xl);">
+      <div class="shadow-label">Extra Large</div>
+    </div>
+    <div class="shadow-card" style="box-shadow: var(--shadow-2xl);">
+      <div class="shadow-label">2X Large</div>
+    </div>
+  </div>
+</body>
+</html>

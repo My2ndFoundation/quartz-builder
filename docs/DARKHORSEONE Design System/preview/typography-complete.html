@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Complete Typography System</title>
+  <link rel="stylesheet" href="../colors_and_type.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: var(--font-body);
+      padding: 24px;
+      background: white;
+    }
+    
+    .type-specimen {
+      margin-bottom: 24px;
+    }
+    
+    .specimen-label {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--color-text-tertiary);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 8px;
+    }
+    
+    .specimen-text {
+      color: var(--color-text-primary);
+    }
+    
+    .divider {
+      height: 1px;
+      background: var(--color-border-light);
+      margin: 24px 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="type-specimen">
+    <div class="specimen-label">Logo · Gaoel (Logo only)</div>
+    <div class="specimen-text display-2" style="font-family: var(--font-display);">DARKHORSEONE</div>
+  </div>
+  
+  <div class="type-specimen">
+    <div class="specimen-label">Hero Text · Syncopate</div>
+    <div class="specimen-text display-2">TRANSFORM YOUR BUSINESS</div>
+  </div>
+  
+  <div class="divider"></div>
+  
+  <div class="type-specimen">
+    <div class="specimen-label">Heading 1 · Syncopate</div>
+    <div class="specimen-text h1">STRATEGIC EXCELLENCE</div>
+  </div>
+  
+  <div class="type-specimen">
+    <div class="specimen-label">Heading 2 · Syncopate</div>
+    <div class="specimen-text h2">DELIVERING RESULTS</div>
+  </div>
+  
+  <div class="divider"></div>
+  
+  <div class="type-specimen">
+    <div class="specimen-label">Body · Inter</div>
+    <div class="specimen-text body">We partner with businesses to unlock their full potential, delivering strategies that transform challenges into competitive advantages.</div>
+  </div>
+  
+  <div class="type-specimen">
+    <div class="specimen-label">Label · JetBrains Mono</div>
+    <div class="specimen-text label">CATEGORY: Strategy</div>
+  </div>
+</body>
+</html>

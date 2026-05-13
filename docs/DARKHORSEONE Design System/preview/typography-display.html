@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Display Typography</title>
+  <link rel="stylesheet" href="../colors_and_type.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: var(--font-body);
+      padding: 24px;
+      background: white;
+    }
+    
+    .type-specimen {
+      margin-bottom: 20px;
+    }
+    
+    .specimen-label {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--color-text-tertiary);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 8px;
+    }
+    
+    .specimen-text {
+      color: var(--color-text-primary);
+    }
+  </style>
+</head>
+<body>
+  <div class="type-specimen">
+    <div class="specimen-label">Display 1 · 72px · Gaoel (Logo only)</div>
+    <div class="specimen-text display-1">DARKHORSEONE</div>
+  </div>
+  
+  <div class="type-specimen">
+    <div class="specimen-label">Display 2 · 60px · Syncopate</div>
+    <div class="specimen-text display-2">TRANSFORM YOUR BUSINESS</div>
+  </div>
+  
+  <div class="type-specimen">
+    <div class="specimen-label">Heading 1 · 48px · Syncopate</div>
+    <div class="specimen-text h1">STRATEGIC EXCELLENCE</div>
+  </div>
+  
+  <div class="type-specimen">
+    <div class="specimen-label">Heading 2 · 36px · Syncopate</div>
+    <div class="specimen-text h2">RESULTS THAT MATTER</div>
+  </div>
+</body>
+</html>

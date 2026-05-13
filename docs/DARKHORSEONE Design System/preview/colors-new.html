@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Color Palette</title>
+  <link rel="stylesheet" href="../colors_and_type.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: var(--font-body);
+      padding: 24px;
+      background: var(--cream);
+    }
+    
+    .color-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+    
+    .color-card {
+      display: flex;
+      flex-direction: column;
+    }
+    
+    .color-swatch {
+      height: 60px;
+      border-radius: 4px;
+      margin-bottom: 6px;
+      border: 1px solid var(--rule);
+    }
+    
+    .color-name {
+      font-size: 12px;
+      font-weight: 600;
+      margin-bottom: 2px;
+      color: var(--ink);
+      font-family: var(--font-mono);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    
+    .color-hex {
+      font-size: 11px;
+      color: var(--muted);
+      font-family: var(--font-mono);
+    }
+  </style>
+</head>
+<body>
+  <div class="color-grid">
+    <div class="color-card">
+      <div class="color-swatch" style="background-color: var(--green);"></div>
+      <div class="color-name">green</div>
+      <div class="color-hex">#0e4a3a</div>
+    </div>
+    
+    <div class="color-card">
+      <div class="color-swatch" style="background-color: var(--green-deep);"></div>
+      <div class="color-name">green-deep</div>
+      <div class="color-hex">#0a3a2d</div>
+    </div>
+    
+    <div class="color-card">
+      <div class="color-swatch" style="background-color: var(--green-ink);"></div>
+      <div class="color-name">green-ink</div>
+      <div class="color-hex">#072a20</div>
+    </div>
+    
+    <div class="color-card">
+      <div class="color-swatch" style="background-color: var(--accent);"></div>
+      <div class="color-name">accent</div>
+      <div class="color-hex">#d9a441</div>
+    </div>
+    
+    <div class="color-card">
+      <div class="color-swatch" style="background-color: var(--accent-deep);"></div>
+      <div class="color-name">accent-deep</div>
+      <div class="color-hex">#a87a22</div>
+    </div>
+    
+    <div class="color-card">
+      <div class="color-swatch" style="background-color: var(--danger);"></div>
+      <div class="color-name">danger</div>
+      <div class="color-hex">#8a2e1b</div>
+    </div>
+  </div>
+</body>
+</html>
